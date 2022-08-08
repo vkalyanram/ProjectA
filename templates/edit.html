@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>Edit Employee Details</h1>
+{% if edit_page %}
+<div class="dropdown">
+  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false">
+    Select Employee to edit 
+  </button>
+  <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuButton2">
+  {% for emp in emps %}
+    <li><a class="dropdown-item active" href="/edit_emp/{{emp.id}}">{{emp.first_name}} {{emp.last_name}}</a></li>
+  {% endfor %}
+  </ul>
+</div>
+{% endif %}
+{% if flag %}
+<div>
+
+{% if emp_to_be_edit %}
+<form action="/edit_emp_details/{{emp_to_be_edit.id}}" method="post">
+{% csrf_token %}
+  <div class="mb-3">
+    <label for="fn" class="form-label">First name</label>
+    <input input type="text"  id="fn" name="fn" value="{{emp_to_be_edit.first_name}}"" class="form-control" >
+  </div>
+  <div class="mb-3">
+    <label for="fn" class="form-label">Last name</label>
+    <input input type="text"  id="ln" name="ln" value="{{emp_to_be_edit.last_name}}" class="form-control" >
+  </div>
+   <div class="mb-3" >  
+  <label for="fn" class="form-label">Department</label>
+<select name='dept' class="form-select" >
+  <option value="{{emp_to_be_edit.dept.id}}" selected>{{emp_to_be_edit.dept.name}}</option>
+  {% for dept in depts %}
+  <option value="{{dept.id}}">{{dept.name}}</option>
+  {%endfor%}
+</select>
+  </div>
+  <div class="mb-3">
+    <label for="fn" class="form-label">Salary</label>
+    <input input type="text"  id="sal" name="sal" value="{{emp_to_be_edit.salary}}" class="form-control" >
+  </div>
+  <div class="mb-3">
+    <label for="fn" class="form-label">Bonus</label>
+    <input input type="text"  id="b" name="b" value="{{emp_to_be_edit.bonus}}" class="form-control" >
+  </div>
+  <div class="mb-3" >  
+  <label for="fn" class="form-label">Role</label>
+  <select name='role' class="form-select" >
+  <option value="{{emp_to_be_edit.role.id}}" selected>{{emp_to_be_edit.role.name}}</option>
+  {% for role in roles %}
+  <option value="{{role.id}}">{{role.name}}</option>
+  {%endfor%}
+</select>
+  <div class="mb-3">
+    <label for="fn" class="form-label">Phone</label>
+    <input input type="text"  name="phone" id="phone" value="{{emp_to_be_edit.phone}}" class="form-control" >
+  </div>
+  
+  <button type="submit" class="btn btn-primary">Edit User</button>
+</form>
+{% endif %}
+
+</div>
+{% endif  %}
+{% endblock %} 

@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>Add Employee Details</h1>
+<form action="/add_emp" method="post">
+{% csrf_token %}
+  <div class="mb-3">
+    <label for="fn" class="form-label">First name</label>
+    <input input type="text"  id="fn" name="fn"  class="form-control" required>
+  </div>
+  <div class="mb-3">
+    <label for="fn" class="form-label">Last name</label>
+    <input input type="text"  id="ln" name="ln" class="form-control" required>
+  </div>
+  <div class="mb-3" >  
+  <label for="fn" class="form-label">Department</label>
+<select name='dept' class="form-select" >
+  <option selected>Select Department</option>
+  {% for dept in depts %}
+  <option value="{{dept.id}}">{{dept.name}}</option>
+  {%endfor%}
+</select>
+  </div>
+  <div class="mb-3">
+    <label for="fn" class="form-label">Salary</label>
+    <input input type="text"  id="sal" name="sal" class="form-control" required>
+  </div>
+  <div class="mb-3">
+    <label for="fn" class="form-label">Bonus</label>
+    <input input type="text"  id="b" name="b" class="form-control" required>
+  </div>
+  <div class="mb-3" >  
+  <label for="fn" class="form-label">Role</label>
+<select name='role' class="form-select" >
+  <option selected>Select Role</option>
+  {% for role in roles %}
+  <option value="{{role.id}}">{{role.name}}</option>
+  {%endfor%}
+</select>
+  </div>
+  <div class="mb-3">
+    <label for="fn" class="form-label">Phone</label>
+    <input input type="text"  id="phone" class="form-control" name="phone" required>
+  </div>
+  
+  <button type="submit" class="btn btn-primary">Add User</button>
+</form>
+
+{% endblock %} 
