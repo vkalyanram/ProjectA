@@ -26,7 +26,7 @@ SECRET_KEY = 'py+vel06x=w^n$r0sgt&hk6^r-49io4=(ncl4384qwmptgtjge'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['https://app-ems-080822.herokuapp.com','localhost','127.0.0.1']
 
 
 # Application definition
@@ -102,8 +102,7 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 
-# Internationalization
-# https://docs.djangoproject.com/en/2.2/topics/i18n/
+
 
 LANGUAGE_CODE = 'en-us'
 
@@ -116,12 +115,9 @@ USE_L10N = True
 USE_TZ = True
 
 
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/2.2/howto/static-files/
-
 STATIC_URL = '/static/'
 
-STATIC_ROOT = os.path.join(BASE_DIR, ‘static’)
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 # Activate Django-Heroku.
 django_heroku.settings(locals())
