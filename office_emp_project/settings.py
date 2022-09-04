@@ -26,7 +26,7 @@ SECRET_KEY = 'py+vel06x=w^n$r0sgt&hk6^r-49io4=(ncl4384qwmptgtjge'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['https://app-ems-080822.herokuapp.com','localhost','127.0.0.1']
+ALLOWED_HOSTS = ['*','localhost','127.0.0.1']
 
 
 # Application definition
